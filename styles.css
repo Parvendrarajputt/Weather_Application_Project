@@ -1,0 +1,244 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Merriweather Sans', sans-serif;
+}
+
+:root {
+    --colorDark1: #112D4E;
+    --colorDark2: #3F72AF;
+    --colorLight1: #DBE2EF;
+    --colorLight2: #F9F7F7;
+    --color-background: WhiteSmoke;
+    --color-text: black;
+    --color-accent: #ffd700;
+    --color-light-accent: rgba(255, 215, 0, 0.5);
+    --color-shadow: rgba(0, 0, 0, 0.1);
+    --font-size-base: 16px; /* Base font size */
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    color: var(--color-text);
+    background-color: var(--color-background);
+}
+
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    padding-top: 20px;
+    font-size: 2rem; /* Large heading font size */
+}
+
+.tab-container {
+    width: 90%;
+    max-width: 550px;
+    margin-top: 4rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tab {
+    cursor: pointer;
+    font-size: 1rem; /* Tab font size */
+    letter-spacing: 1.5px;
+    padding: 8px 12px;
+}
+
+.tab.current-tab {
+    background-color: #ffd700;
+    border-radius: 4px;
+}
+
+.weather-container {
+    margin-block: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.btn {
+    all: unset;
+    font-size: 0.9rem; /* Button font size */
+    text-transform: uppercase;
+    border-radius: 6px;
+    background-color: var(--color-accent);
+    cursor: pointer;
+    padding: 6px 12px;
+    margin-bottom: 10px;
+}
+
+.sub-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.grant-location-container {
+    display: none;
+}
+
+.grant-location-container.active {
+    display: flex;
+}
+
+.grant-location-container img {
+    margin-bottom: 1.5rem;
+}
+
+.grant-location-container p:first-of-type {
+    font-size: 1.5rem; /* Large paragraph font size */
+    font-weight: 600;
+}
+
+.grant-location-container p:last-of-type {
+    font-size: 0.85rem; /* Small paragraph font size */
+    font-weight: 500;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.5px;
+}
+
+.loading-container {
+    display: none;
+}
+
+.loading-container.active {
+    display: flex;
+    align-items: center;
+}
+
+.loading-container p {
+    text-transform: uppercase;
+}
+
+.user-info-container {
+    display: none;
+}
+
+.user-info-container.active {
+    display: flex;
+}
+
+.name {
+    display: flex;
+    align-items: center;
+    gap: 0 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.user-info-container p {
+    font-size: 1.25rem; /* Medium paragraph font size */
+    font-weight: 200;
+}
+
+.user-info-container img {
+    width: 90px;
+    height: 90px;
+}
+
+.name p {
+    font-size: 3rem; /* Large name font size */
+}
+
+.name img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.user-info-container p[data-temp] {
+    font-size: 2.5rem; /* Large temperature font size */
+    font-weight: 700;
+}
+
+.parameter-container {
+    width: 90%;
+    display: flex;
+    gap: 10px 20px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.parameter {
+    flex: 1;
+    padding: 1.5rem;
+    border-radius: 10px;
+    background-color: transparent;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    border: 2px solid black;
+}
+
+.parameter:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-accent);
+}
+
+.parameter p {
+    margin: 0;
+}
+
+.parameter img {
+    width: 50px;
+    height: 50px;
+}
+
+.parameter p:first-of-type {
+    font-size: 1rem; /* Medium paragraph font size */
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.parameter p:last-of-type {
+    font-size: 0.9rem; /* Small paragraph font size */
+    font-weight: 200;
+}
+
+@media screen and (max-width: 768px) {
+    .parameter-container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .parameter {
+        width: 100%;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    .name img {
+        width: 25px;
+        height: 25px;
+    }
+
+    [data-weatherDesc],
+    [data-temp],
+    .parameter {
+        font-size: 0.9rem;
+    }
+
+    [data-weatherIcon],
+    .parameter img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .parameter {
+        padding: 1rem;
+    }
+
+    .parameter-container {
+        gap: 1rem;
+    }
+}
